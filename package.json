@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "lint": "eslint .",
     "test": "jest",
-    "show": "live-server"
+    "start": "webpack serve --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -25,10 +25,11 @@
     "mini-css-extract-plugin": "^2.7.6",
     "style-loader": "^3.3.3",
     "webpack": "^5.83.1",
-    "webpack-cli": "^5.1.1"
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
     "core-js": "^3.30.2",
-    "eslint": "^8.40.0"
+    "eslint": "^8.41.0"
   }
 }

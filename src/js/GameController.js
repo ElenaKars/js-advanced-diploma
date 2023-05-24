@@ -1,3 +1,5 @@
+import themes from './themes';
+
 export default class GameController {
   constructor(gamePlay, stateService) {
     this.gamePlay = gamePlay;
