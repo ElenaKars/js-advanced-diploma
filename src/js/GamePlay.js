@@ -1,4 +1,3 @@
-import { HTMLElement } from 'dom';
 import { calcHealthLevel, calcTileType } from './utils';
 
 export default class GamePlay {
@@ -52,14 +51,14 @@ export default class GamePlay {
     this.boardEl = this.container.querySelector('[data-id=board]');
 
     this.boardEl.classList.add(theme);
-    Array.from({ length: this.boardSize ** 2 }).forEach((_, i) => {
+    for (let i = 0; i < this.boardSize ** 2; i += 1) {
       const cellEl = document.createElement('div');
       cellEl.classList.add('cell', 'map-tile', `map-tile-${calcTileType(i, this.boardSize)}`);
       cellEl.addEventListener('mouseenter', (event) => this.onCellEnter(event));
       cellEl.addEventListener('mouseleave', (event) => this.onCellLeave(event));
       cellEl.addEventListener('click', (event) => this.onCellClick(event));
       this.boardEl.appendChild(cellEl);
-    });
+    }
 
     this.cells = Array.from(this.boardEl.children);
   }
@@ -70,11 +69,11 @@ export default class GamePlay {
    * @param positions array of PositionedCharacter objects
    */
   redrawPositions(positions) {
-    this.cells.forEach((cell) => {
+    for (const cell of this.cells) {
       cell.innerHTML = '';
-    });
+    }
 
-    positions.forEach((position) => {
+    for (const position of positions) {
       const cellEl = this.boardEl.children[position.position];
       const charEl = document.createElement('div');
       charEl.classList.add('character', position.character.type);
@@ -89,7 +88,7 @@ export default class GamePlay {
 
       charEl.appendChild(healthEl);
       cellEl.appendChild(charEl);
-    });
+    }
   }
 
   /**
@@ -179,22 +178,22 @@ export default class GamePlay {
   }
 
   static showError(message) {
-    alert(message);
+    alert(message); // eslint-disable-line
   }
 
   static showMessage(message) {
-    alert(message);
+    alert(message); // eslint-disable-line
   }
 
   selectCell(index, color = 'yellow') {
-    this.deselectCell(index);
     this.cells[index].classList.add('selected', `selected-${color}`);
   }
 
   deselectCell(index) {
-    const cell = this.cells[index];
-    cell.classList.remove(...Array.from(cell.classList)
-      .filter((o) => o.startsWith('selected')));
+    if (typeof index === 'number') {
+      const cell = this.cells[index];
+      cell.classList.remove(...Array.from(cell.classList).filter((o) => o.startsWith('selected')));
+    }
   }
 
   showCellTooltip(message, index) {

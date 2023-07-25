@@ -1,3 +1,4 @@
+import 'jest';
 import { calcTileType } from '../utils';
 
 describe(calcTileType, () => {

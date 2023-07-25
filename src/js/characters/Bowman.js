@@ -4,7 +4,8 @@ export default class Bowman extends Character {
   constructor(level) {
     super(level, 'bowman');
     this.attack = 25;
-    this.defense = 25;
-    this.health = 50;
+    this.defence = 25;
+    this.moveDist = 2;
+    this.attackDist = 2;
   }
 }
