@@ -1,5 +1,7 @@
 # Дипломное задание к курсу «Продвинутый JavaScript». Retro Game
 
+![CI](https://github.com/ElenaKars/js-advanced-diploma/actions/workflows/web.yml/badge.svg)
+
 ###### tags: `netology` `advanced js`
 
 ## Предыстория
